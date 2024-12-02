@@ -141,38 +141,38 @@ export default async () => {
       }],
     ],
     i18n: {
-      country: 'US',
+      country: 'GR',
       baseUrl: process.env.VSF_STORE_URL,
       strategy: 'prefix',
       locales: [
         {
-          code: 'default',
-          file: 'en.js',
-          iso: 'en_US',
-          defaultCurrency: 'USD',
+          code: 'el',
+          file: 'el.js',
+          iso: 'el_GR',
+          defaultCurrency: 'EUR',
         },
         {
-          code: 'german',
-          file: 'de.js',
-          iso: 'de_DE',
+          code: 'en',
+          file: 'en.js',
+          iso: 'el_GR',
           defaultCurrency: 'EUR',
         },
       ],
-      defaultLocale: 'default',
+      defaultLocale: 'el',
       lazy: true,
       seo: true,
       langDir: 'lang/',
       vueI18n: {
-        fallbackLocale: 'default',
+        fallbackLocale: 'el',
         numberFormats: {
-          default: {
+          el: {
             currency: {
               style: 'currency',
-              currency: 'USD',
+              currency: 'EUR',
               currencyDisplay: 'symbol',
             },
           },
-          german: {
+          en: {
             currency: {
               style: 'currency',
               currency: 'EUR',
