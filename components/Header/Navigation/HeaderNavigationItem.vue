@@ -42,8 +42,13 @@ export default defineComponent({
 </script>
 <style lang="scss">
 
-.sf-header-navigation-item__item--desktop > *:not(.sf-mega-menu) {
-  text-transform: initial;
+.sf-header-navigation-item__item--desktop {
+  max-width: 800px;
+
+  & > *:not(.sf-mega-menu) {
+    text-transform: initial;
+    margin: 0;
+  }
 }
 
 .sf-header-navigation-item__link {
