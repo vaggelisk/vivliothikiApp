@@ -41,6 +41,11 @@ export default defineComponent({
 });
 </script>
 <style lang="scss">
+
+.sf-header-navigation-item__item--desktop > *:not(.sf-mega-menu) {
+  text-transform: initial;
+}
+
 .sf-header-navigation-item__link {
   display: flex;
   .sf-icon {
