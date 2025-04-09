@@ -114,7 +114,7 @@ export default defineComponent({
 
     onMounted(async () => {
       const newestProducts = await getProductList({
-        pageSize: 4,
+        pageSize: 6,
         currentPage: 1,
         sort: {
           position: SortEnum.Asc,

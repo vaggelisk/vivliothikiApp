@@ -151,12 +151,12 @@ export default async () => {
           iso: 'el_GR',
           defaultCurrency: 'EUR',
         },
-        // {
-        //   code: 'en',
-        //   file: 'en.js',
-        //   iso: 'el_GR',
-        //   defaultCurrency: 'EUR',
-        // },
+        {
+          code: 'm4',
+          file: 'en.js',
+          iso: 'el_GR',
+          defaultCurrency: 'EUR',
+        },
       ],
       defaultLocale: 'el',
       lazy: true,
@@ -172,13 +172,13 @@ export default async () => {
               currencyDisplay: 'symbol',
             },
           },
-          // en: {
-          //   currency: {
-          //     style: 'currency',
-          //     currency: 'EUR',
-          //     currencyDisplay: 'symbol',
-          //   },
-          // },
+          m4: {
+            currency: {
+              style: 'currency',
+              currency: 'EUR',
+              currencyDisplay: 'symbol',
+            },
+          },
         },
       },
       detectBrowserLanguage: false,

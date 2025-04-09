@@ -4838,6 +4838,7 @@ export interface ProductInterface {
   style_bags?: Maybe<Scalars['String']>;
   style_bottom?: Maybe<Scalars['String']>;
   style_general?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<Scalars['String']>;
   /** The file name of a swatch image */
   swatch_image?: Maybe<Scalars['String']>;
   /** The relative path to the product's thumbnail image. */
@@ -5737,6 +5738,7 @@ export interface SimpleProduct extends CustomizableProductInterface, PhysicalPro
   style_bags?: Maybe<Scalars['String']>;
   style_bottom?: Maybe<Scalars['String']>;
   style_general?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<Scalars['String']>;
   /** The file name of a swatch image */
   swatch_image?: Maybe<Scalars['String']>;
   /** The relative path to the product's thumbnail image. */
@@ -6784,6 +6786,7 @@ export declare type AddBundleProductsToCartMutation = {
           only_x_left_in_stock?: number | null | undefined;
           rating_summary: number;
           url_key?: string | null | undefined;
+          subtitle?: string | null | undefined;
           review_count: number;
           thumbnail?: {
             url?: string | null | undefined;
@@ -7158,6 +7161,7 @@ export declare type AddBundleProductsToCartMutation = {
           };
         } | {
           __typename: 'SimpleProduct';
+          subtitle?: string | null | undefined;
           uid: string;
           sku?: string | null | undefined;
           name?: string | null | undefined;
@@ -7535,6 +7539,7 @@ export declare type AddBundleProductsToCartMutation = {
           __typename: 'SimpleProduct';
           uid: string;
           sku?: string | null | undefined;
+          subtitle?: string | null | undefined;
           name?: string | null | undefined;
           stock_status?: ProductStockStatus | null | undefined;
           only_x_left_in_stock?: number | null | undefined;
@@ -30521,6 +30526,7 @@ export declare type ProductDetailsQuery = {
       url_key?: string | null | undefined;
       rating_summary: number;
       review_count: number;
+      subtitle?: string | null | undefined;
       meta_description?: string | null | undefined;
       meta_keyword?: string | null | undefined;
       meta_title?: string | null | undefined;
@@ -30530,6 +30536,7 @@ export declare type ProductDetailsQuery = {
         position?: number | null | undefined;
         required?: boolean | null | undefined;
         sku?: string | null | undefined;
+        subtitle?: string | null | undefined;
         title?: string | null | undefined;
         type?: string | null | undefined;
         uid?: string | null | undefined;
@@ -30777,7 +30784,8 @@ export declare type ProductDetailsQuery = {
       short_description?: {
         html: string;
       } | null | undefined;
-    } | {
+    } |
+      {
       uid: string;
       sku?: string | null | undefined;
       name?: string | null | undefined;
@@ -30791,6 +30799,7 @@ export declare type ProductDetailsQuery = {
       meta_title?: string | null | undefined;
       options_container?: string | null | undefined;
       special_to_date?: string | null | undefined;
+      subtitle?: string | null | undefined;
       configurable_options?: Array<{
         attribute_code?: string | null | undefined;
         attribute_uid: string;
@@ -30933,13 +30942,15 @@ export declare type ProductDetailsQuery = {
       short_description?: {
         html: string;
       } | null | undefined;
-    } | {
+    } |
+      {
       uid: string;
       sku?: string | null | undefined;
       name?: string | null | undefined;
       stock_status?: ProductStockStatus | null | undefined;
       only_x_left_in_stock?: number | null | undefined;
       url_key?: string | null | undefined;
+      subtitle?: string | null | undefined;
       rating_summary: number;
       review_count: number;
       meta_description?: string | null | undefined;
@@ -31036,7 +31047,8 @@ export declare type ProductDetailsQuery = {
       short_description?: {
         html: string;
       } | null | undefined;
-    } | {
+    } |
+      {
       uid: string;
       sku?: string | null | undefined;
       name?: string | null | undefined;
@@ -31045,6 +31057,7 @@ export declare type ProductDetailsQuery = {
       url_key?: string | null | undefined;
       rating_summary: number;
       review_count: number;
+      subtitle?: string | null | undefined;
       meta_description?: string | null | undefined;
       meta_keyword?: string | null | undefined;
       meta_title?: string | null | undefined;
@@ -31338,7 +31351,8 @@ export declare type ProductDetailsQuery = {
       short_description?: {
         html: string;
       } | null | undefined;
-    } | {
+    } |
+      {
       uid: string;
       sku?: string | null | undefined;
       name?: string | null | undefined;
@@ -31347,6 +31361,7 @@ export declare type ProductDetailsQuery = {
       url_key?: string | null | undefined;
       rating_summary: number;
       review_count: number;
+      subtitle?: string | null | undefined;
       meta_description?: string | null | undefined;
       meta_keyword?: string | null | undefined;
       meta_title?: string | null | undefined;
@@ -31431,7 +31446,8 @@ export declare type ProductDetailsQuery = {
       short_description?: {
         html: string;
       } | null | undefined;
-    } | {
+    } |
+      {
       gift_message_available?: string | null | undefined;
       uid: string;
       sku?: string | null | undefined;
@@ -31446,6 +31462,7 @@ export declare type ProductDetailsQuery = {
       meta_title?: string | null | undefined;
       options_container?: string | null | undefined;
       special_to_date?: string | null | undefined;
+      subtitle?: string | null | undefined;
       product_links?: Array<{
         link_type?: string | null | undefined;
         linked_product_sku?: string | null | undefined;

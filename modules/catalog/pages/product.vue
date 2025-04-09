@@ -41,17 +41,23 @@ import {
 import { merge } from 'lodash-es';
 import { useCache, CacheTagPrefix } from '@vue-storefront/cache';
 import { SfBreadcrumbs, SfLoader } from '@storefront-ui/vue';
-import { getBreadcrumbs } from '~/modules/catalog/product/getters/productGetters';
+import {
+  getAttributes,
+  getBreadcrumbs,
+  getCategoryIds,
+  getProductSku
+} from '~/modules/catalog/product/getters/productGetters';
 import { useProduct } from '~/modules/catalog/product/composables/useProduct';
 import { getMetaInfo } from '~/helpers/getMetaInfo';
 import { usePageStore } from '~/stores/page';
 import { ProductTypeEnum } from '~/modules/catalog/product/enums/ProductTypeEnum';
-import { useWishlist, useApi } from '~/composables';
+import {useWishlist, useApi, useCurrency} from '~/composables';
 import LoadWhenVisible from '~/components/utils/LoadWhenVisible.vue';
 import type { Product } from '~/modules/catalog/product/types';
 import type { ProductDetailsQuery } from '~/modules/GraphQL/types';
 import ProductSkeleton from '~/modules/catalog/product/components/ProductSkeleton.vue';
 import getProductPriceBySkuGql from '~/modules/catalog/product/queries/getProductPriceBySku.gql';
+import getProductCustomAttributesBySkuGql from "~/modules/catalog/product/queries/getProductCustomAttributesBySku.gql";
 
 export default defineComponent({
   name: 'ProductPage',
@@ -88,6 +94,14 @@ export default defineComponent({
       ).map((breadcrumb) => ({ ...breadcrumb, link: localePath(breadcrumb.link) }));
     });
 
+    const getBaseSearchQuery2 = () => ({
+      filter: {
+        sku: {
+          eq: routeData.sku,
+        }
+      }
+    })
+
     const getBaseSearchQuery = () => ({
       filter: {
         sku: {
@@ -108,15 +122,22 @@ export default defineComponent({
       const result = await getProductDetails({
         ...searchQuery,
       });
-
       product.value = merge({}, product.value, result.items[0] as Product ?? null);
     };
 
-    const fetchProductExtendedData = async (searchQuery = getBaseSearchQuery()) => {
+    const fetchProductExtendedData = async (searchQuery = getBaseSearchQuery(),) => {
       const { data } = await query<ProductDetailsQuery>(getProductPriceBySkuGql, searchQuery);
-
       product.value = merge({}, product.value, data.products?.items?.[0] as Product);
     };
+
+    const fetchProductCustomAttributes = async (searchQuery2 = getBaseSearchQuery2()) => {
+      const { data } = await query<ProductDetailsQuery>(getProductCustomAttributesBySkuGql, searchQuery2);
+      console.log(data.products.items[0])
+      product.value = merge({}, product.value, data.products.items[0] as Product ?? null);
+      // customAttributes.value =  data.products?.items?.[0];
+    }
+
+      // getProductSku( { sku: 'testKantro'} )
 
     useFetch(async () => {
       await fetchProductBaseData();
@@ -140,7 +161,9 @@ export default defineComponent({
     });
 
     onMounted(async () => {
-      await Promise.all([fetchProductExtendedData(), loadWishlist()]);
+      await Promise.all([fetchProductExtendedData(), loadWishlist(), fetchProductCustomAttributes()]);
+      console.log('mounted');
+      console.log(product.value)
     });
 
     return {

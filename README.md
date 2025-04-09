@@ -37,6 +37,13 @@ $ npx yarn install
 $ npx yarn dev
 ```
 
+### Important sources
+
+1. [ nuxt -- framework](https://nuxt.com/docs/examples/hello-world)
+
+
+2. [CSS -- Storefront-UI](https://docs.storefrontui.io/v2/customization/overriding-default-styles)
+
 ### Multistore local dev setup
 1. Install [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) on your local machine.
 

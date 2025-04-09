@@ -12,6 +12,8 @@ export default `
         name
         stock_status
         only_x_left_in_stock
+        subtitle
+        weight
         thumbnail {
           url
           position

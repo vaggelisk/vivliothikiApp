@@ -1,27 +1,27 @@
 <template>
   <div class="product">
-<!--    <SfLoader-->
-<!--      class="loading&#45;&#45;product-gallery"-->
-<!--      :loading="isFetching"-->
-<!--    >-->
-<!--      <SfGallery-->
-<!--        :images="productGallery"-->
-<!--        :image-width="imageSizes.productGallery.imageWidth"-->
-<!--        :image-height="imageSizes.productGallery.imageHeight"-->
-<!--        :thumb-width="imageSizes.productGallery.thumbWidth"-->
-<!--        :thumb-height="imageSizes.productGallery.thumbHeight"-->
-<!--        :enable-zoom="true"-->
-<!--        image-tag="nuxt-img"-->
-<!--        thumb-image-tag="nuxt-img"-->
-<!--        class="product__gallery"-->
-<!--        :nuxt-img-config="{-->
-<!--          fit: 'cover',-->
-<!--        }"-->
-<!--        :thumb-nuxt-img-config="{-->
-<!--          fit: 'cover',-->
-<!--        }"-->
-<!--      />-->
-<!--    </SfLoader>-->
+    <SfLoader
+      class="loading--product-gallery"
+      :loading="isFetching"
+    >
+      <SfGallery
+        :images="productGallery"
+        :image-width="imageSizes.productGallery.imageWidth"
+        :image-height="imageSizes.productGallery.imageHeight"
+        :thumb-width="imageSizes.productGallery.thumbWidth"
+        :thumb-height="imageSizes.productGallery.thumbHeight"
+        :enable-zoom="true"
+        image-tag="nuxt-img"
+        thumb-image-tag="nuxt-img"
+        class="product__gallery"
+        :nuxt-img-config="{
+          fit: 'cover',
+        }"
+        :thumb-nuxt-img-config="{
+          fit: 'cover',
+        }"
+      />
+    </SfLoader>
     <div class="product__info">
       <div class="product__header">
         <SfHeading
@@ -36,6 +36,7 @@
           class="product__drag-icon smartphone-only"
         />
       </div>
+      {{product.subtitle}}
       <div class="product__price-and-rating">
         <SfPrice
           :regular="$fc(productPrice)"
